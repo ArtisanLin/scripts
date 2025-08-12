@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"],
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "stripInternal": true
+  },
+  "include": [
+    "packages/global.d.ts",
+    "packages/base.d.ts",
+    "packages/logger-cli/src"
+  ]
+}
