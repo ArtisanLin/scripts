@@ -1,0 +1,32 @@
+{
+  "name": "@sdk-common/hotkey",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "types": "dist/hotkey.d.ts",
+  "files": [
+    "dist",
+    "index.node.js",
+    "index.js"
+  ],
+  "peerDependencies": {},
+  "exports": {
+    ".": {
+      "types": "./dist/hotkey.d.ts",
+      "node": "./index.node.js",
+      "module": "./dist/hotkey.esm-bundler.js",
+      "import": "./dist/hotkey.esm-bundler.js",
+      "require": "./index.js"
+    },
+    "./*": "./*"
+  },
+  "buildOptions": {
+    "name": "hotkey",
+    "formats": [
+      "esm-bundler",
+      "cjs"
+    ]
+  },
+  "keywords": [],
+  "license": "Proprietary"
+}
