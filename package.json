@@ -42,7 +42,7 @@
     "@vue/consolidate": "1.0.0",
     "barrelsby": "^2.8.1",
     "commander": "^12.1.0",
-    "conventional-changelog-cli": "^4.1.0",
+    "conventional-changelog-cli": "5.0.0",
     "enquirer": "^2.4.1",
     "esbuild": "^0.21.5",
     "esbuild-plugin-polyfill-node": "^0.3.0",
