@@ -11,12 +11,12 @@
     "check": "pnpm run type-check && pnpm run fix",
     "type-check": "node --max-old-space-size=4096 ./node_modules/typescript/lib/tsc.js --incremental --noEmit",
     "fix:prettier": "node ./scripts/prettier.cjs",
-    "fix:prettier:changed": "yarn fix:prettier --mode write-changed",
+    "fix:prettier:changed": "pnpm fix:prettier --mode write-changed",
     "fix:eslint": "eslint --fix .",
     "fix": "pnpm fix:eslint && pnpm fix:prettier",
     "generate-barrels": "node ./scripts/barrelsby.cjs",
     "release": "node scripts/release.js --preid",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && pnpm fix:eslint && pnpm fix:prettier:changed",
     "preinstall": "npx only-allow pnpm"
   },
   "engines": {
