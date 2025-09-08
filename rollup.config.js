@@ -1,18 +1,19 @@
 // @ts-check
-import assert from 'node:assert/strict'
-import { createRequire } from 'node:module'
-import { fileURLToPath } from 'node:url'
-import path from 'node:path'
-import replace from '@rollup/plugin-replace'
-import json from '@rollup/plugin-json'
-import picocolors from 'picocolors'
 import commonJS from '@rollup/plugin-commonjs'
 import inject from '@rollup/plugin-inject'
-import polyfillNode from 'rollup-plugin-polyfill-node'
+import json from '@rollup/plugin-json'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
-import esbuild from 'rollup-plugin-esbuild'
-import { inlineEnums } from './scripts/inline-enums.js'
+import replace from '@rollup/plugin-replace'
 import { minify as minifySwc } from '@swc/core'
+import assert from 'node:assert/strict'
+import { createRequire } from 'node:module'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import picocolors from 'picocolors'
+import esbuild from 'rollup-plugin-esbuild'
+import polyfillNode from 'rollup-plugin-polyfill-node'
+
+import { inlineEnums } from './scripts/inline-enums.js'
 
 /**
  * @template T
@@ -298,15 +299,15 @@ function createConfig(format, output, plugins = []) {
 
     const nodePlugins =
       (format === 'cjs' && Object.keys(pkg.devDependencies || {}).length) ||
-        packageOptions.enableNonBrowserBranches
+      packageOptions.enableNonBrowserBranches
         ? [
-          commonJS({
-            sourceMap: false,
-            ignore: cjsIgnores,
-          }),
-          ...(format === 'cjs' ? [] : [polyfillNode()]),
-          nodeResolve(),
-        ]
+            commonJS({
+              sourceMap: false,
+              ignore: cjsIgnores,
+            }),
+            ...(format === 'cjs' ? [] : [polyfillNode()]),
+            nodeResolve(),
+          ]
         : []
 
     return nodePlugins
